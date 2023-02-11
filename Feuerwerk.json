@@ -1,0 +1,22 @@
+{
+    "63e3db1e4c2e4": {
+        "color": "red",
+        "radius": "5",
+        "form": "kreis"
+    },
+    "63e3db3461b89": {
+        "color": "green",
+        "radius": "10",
+        "form": "rect"
+    },
+    "63e5263cb5253": {
+        "color": "violet",
+        "radius": "4",
+        "form": "rect"
+    },
+    "63e527db18c06": {
+        "color": "green",
+        "radius": "7",
+        "form": "kreis"
+    }
+}
