@@ -2,11 +2,13 @@
 var Firework;
 (function (Firework) {
     /*Aufgabe: Endabgabe
-      Name: Liz Hengsteler
+      Name: Kristoffer Müller
       Matrikel: 268424
       Datum: 12.02.2023
-      Zusammenarbeit: Kristoffer Müller und Theo Züffle
-      Quellen: Inverted Classroom, Jirka Videos + Code
+      Zusammenarbeit: Liz Hengsteler und Theo Züffle
+      Quellen:
+      Inverted Classroom
+      Jirka Videos + Code
       W3Schools
       Stackoverflow
       ChatGPT

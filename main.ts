@@ -1,11 +1,13 @@
 namespace Firework {
 
     /*Aufgabe: Endabgabe
-      Name: Liz Hengsteler
+      Name: Kristoffer Müller
       Matrikel: 268424
       Datum: 12.02.2023
-      Zusammenarbeit: Kristoffer Müller und Theo Züffle
-      Quellen: Inverted Classroom, Jirka Videos + Code
+      Zusammenarbeit: Liz Hengsteler und Theo Züffle
+      Quellen: 
+      Inverted Classroom
+      Jirka Videos + Code
       W3Schools
       Stackoverflow
       ChatGPT
@@ -64,6 +66,7 @@ namespace Firework {
         selected = Number(_choiceClick.target.id); //wandelt id in eine number um
     }
 
+    
     function handleLoad(_event: Event): void {
         send("https://webuser.hs-furtwangen.de/~muelle1k/Database/?command=find&collection=Fireworks");
         let canvas: HTMLCanvasElement = document.querySelector("canvas")!;
