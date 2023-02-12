@@ -42,7 +42,7 @@ namespace Firework {
         responsedata = <Firework[]>JSON.parse(collectionData);
         responseArray = <Firework[]>responsedata.data;
         console.log(responseArray);
-        //immer nur die neuesten 5 aus responseArray und nicht die selben 5
+        
         for (let i: number = responseArray.length - 1; i > responseArray.length - 5; i--) {
 
             //console.log(responseArray['' + i].radius);
@@ -60,13 +60,13 @@ namespace Firework {
 
 
 
-    
+
 
     function changeChoice(_choiceClick: Event): void {
-        selected = Number(_choiceClick.target.id); //wandelt id in eine number um
+        selected = Number(_choiceClick.target.id); 
     }
 
-    
+
     function handleLoad(_event: Event): void {
         send("https://webuser.hs-furtwangen.de/~muelle1k/Database/?command=find&collection=Fireworks");
         let canvas: HTMLCanvasElement = document.querySelector("canvas")!;
