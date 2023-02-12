@@ -19,22 +19,19 @@ namespace Firework {
             this.radius = _radius;
             this.color = _color;
             this.shape = _shape;
-            this.randomEffekt();
+            this.randomEffect();
 
         }
         public life(): void {
             if (this.lifeParticleSize > 0) {
                 this.radius2 = this.radius;
-
-
                 this.radius2 *= this.lifeParticleSize;
                 this.lifeParticleSize -= 0.3;
                 this.draw();
-                this.forceEffekt();
-
+                this.forceEffect();
             }
         }
-        public randomEffekt(): void {
+        public randomEffect(): void {
             for (let i: number = 0; i < this.particleMax; i++) {
                 this.forceX.push(this.lifeParticleSize / 6);
                 this.forceY.push(this.lifeParticleSize / 6);
@@ -42,10 +39,10 @@ namespace Firework {
                 this.forceY[i] += (Math.random()) * this.random * (this.lifeParticleSize / 6);
                 this.turbulenceX.push(this.forceX[i]);
                 this.turbulenceY.push(this.forceY[i]);
-            }
+            } //sorgt dafür das Partikel zufällig in unterschiedliche Richtungen fliegen
 
         }
-        public forceEffekt(): void {
+        public forceEffect(): void {
 
             for (let i: number = 0; i < this.particleMax; i++) {
                 this.turbulenceX[i] += this.forceX[i];

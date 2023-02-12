@@ -21,7 +21,7 @@ var Firework;
             this.radius = _radius;
             this.color = _color;
             this.shape = _shape;
-            this.randomEffekt();
+            this.randomEffect();
         }
         life() {
             if (this.lifeParticleSize > 0) {
@@ -29,10 +29,10 @@ var Firework;
                 this.radius2 *= this.lifeParticleSize;
                 this.lifeParticleSize -= 0.3;
                 this.draw();
-                this.forceEffekt();
+                this.forceEffect();
             }
         }
-        randomEffekt() {
+        randomEffect() {
             for (let i = 0; i < this.particleMax; i++) {
                 this.forceX.push(this.lifeParticleSize / 6);
                 this.forceY.push(this.lifeParticleSize / 6);
@@ -40,9 +40,9 @@ var Firework;
                 this.forceY[i] += (Math.random()) * this.random * (this.lifeParticleSize / 6);
                 this.turbulenceX.push(this.forceX[i]);
                 this.turbulenceY.push(this.forceY[i]);
-            }
+            } //sorgt dafür das Partikel zufällig in unterschiedliche Richtungen fliegen
         }
-        forceEffekt() {
+        forceEffect() {
             for (let i = 0; i < this.particleMax; i++) {
                 this.turbulenceX[i] += this.forceX[i];
                 this.turbulenceY[i] += this.forceY[i];

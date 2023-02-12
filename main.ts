@@ -19,7 +19,7 @@ namespace Firework {
 
     let selected: number = 0;
     
-    let img: any;
+    let img: HTMLImageElement;
 
     interface Firework {
         [key: string]: string;
@@ -37,17 +37,18 @@ namespace Firework {
 
         let response: Response = await fetch(_query);
         let collectionData: string = await response.text();
-        console.log(collectionData);
+        //console.log(collectionData);
 
         responsedata = <Firework[]>JSON.parse(collectionData);
         responseArray = <Firework[]>responsedata.data;
-        //console.log((responseArray['0'].radius).toString());
+        console.log(responseArray);
         for (let i: number = responseArray.length - 1; i > responseArray.length - 5; i--) {
 
             //console.log(responseArray['' + i].radius);
             let choiceDiv: any = document.getElementsByClassName("rockets")[responseArray.length - i - 1];
             choiceDiv.setAttribute("id", "" + i);
             choiceDiv.addEventListener("click", changeChoice);
+            console.log(choiceDiv);
         }
 
         return true;
