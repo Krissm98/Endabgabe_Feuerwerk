@@ -24,12 +24,10 @@ namespace Firework {
     interface Firework {
         [key: string]: string;
 
-    }
-    interface Collection {
-        fireworkdata: Firework;
-    }
-    let responsedata: any[];
-    let responseArray: Collection[];
+    } 
+    
+    let responsedata: Firework[];
+    let responseArray: Firework[];
 
     async function send(_query: string): Promise<boolean> {
 
@@ -42,10 +40,11 @@ namespace Firework {
         responsedata = <Firework[]>JSON.parse(collectionData);
         responseArray = <Firework[]>responsedata.data;
         console.log(responseArray);
+        //immer nur die neuesten 5 aus responseArray und nicht die selben 5
         for (let i: number = responseArray.length - 1; i > responseArray.length - 5; i--) {
 
             //console.log(responseArray['' + i].radius);
-            let choiceDiv: any = document.getElementsByClassName("rockets")[responseArray.length - i - 1];
+            let choiceDiv: any = document.getElementsByClassName("rockets")[responseArray.length - i - 1]; //"rocket array"
             choiceDiv.setAttribute("id", "" + i);
             choiceDiv.addEventListener("click", changeChoice);
             console.log(choiceDiv);
@@ -62,7 +61,7 @@ namespace Firework {
     
 
     function changeChoice(_choiceClick: Event): void {
-        selected = Number(_choiceClick.target.id);
+        selected = Number(_choiceClick.target.id); //wandelt id in eine number um
     }
 
     function handleLoad(_event: Event): void {

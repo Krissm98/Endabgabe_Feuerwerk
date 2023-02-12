@@ -24,9 +24,10 @@ var Firework;
         responsedata = JSON.parse(collectionData);
         responseArray = responsedata.data;
         console.log(responseArray);
+        //immer nur die neuesten 5 aus responseArray und nicht die selben 5
         for (let i = responseArray.length - 1; i > responseArray.length - 5; i--) {
             //console.log(responseArray['' + i].radius);
-            let choiceDiv = document.getElementsByClassName("rockets")[responseArray.length - i - 1];
+            let choiceDiv = document.getElementsByClassName("rockets")[responseArray.length - i - 1]; //"rocket array"
             choiceDiv.setAttribute("id", "" + i);
             choiceDiv.addEventListener("click", changeChoice);
             console.log(choiceDiv);
@@ -35,7 +36,7 @@ var Firework;
     }
     // show MingiDB's response in the textarea
     function changeChoice(_choiceClick) {
-        selected = Number(_choiceClick.target.id);
+        selected = Number(_choiceClick.target.id); //wandelt id in eine number um
     }
     function handleLoad(_event) {
         send("https://webuser.hs-furtwangen.de/~muelle1k/Database/?command=find&collection=Fireworks");

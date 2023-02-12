@@ -12,16 +12,7 @@ namespace testMingiDB {
 console.log(database);
   // check if a MingiDB installation is referred to as the parameter for the client
   async function start(_event: Event): Promise<void> {
-    try {
-      await send("?", null);
-      
-    } catch (_e: unknown) {
-      let output: string = `Add the correct address of your database as get-parameter in the url.\n`;
-      output += `https://webuser.hs-furtwangen.de/~muelle1k/Database/\n\n`;
-      output += _e;
-      output += `\n\nSee more information in the console.`;
-      alert(output);
-    }
+   
     document.forms[0].addEventListener("click", hndButton);
   }
 
