@@ -28,7 +28,7 @@ console.log(database);
   // send a query together with the data if applicable
   async function send(_query: string, _data: Object): Promise<boolean> {
     let query: string = _query + (_data ? "&data=" + JSON.stringify(_data) : "");
-    (<HTMLInputElement>document.querySelector("input#query")).value = query;
+    (<HTMLInputElement>document.querySelector("input#query")).value = query; //zeigt die Anfrage die an den Server geschickt wurde in Query Fenster
 
     let response: Response = await fetch(database + query);
     output(await response.json());
@@ -37,15 +37,15 @@ console.log(database);
 
   // show MingiDB's response in the textarea
   function output(_response: Object): void {
-    document.querySelector("textarea")!.value = JSON.stringify(_response, null, 2);
+    document.querySelector("textarea")!.value = JSON.stringify(_response, null, 2); //zeigt die Antwort des Servers in Result Fenster 
   }
 
   // react to the buttons, build the query and the data accordingly and call send
   function hndButton(_event: Event): void {
-    if (_event.target instanceof HTMLAnchorElement)
-      return hndAnchor(_event);
-    if (!(_event.target instanceof HTMLButtonElement))
-      return;
+    // if (_event.target instanceof HTMLAnchorElement)
+    //   return hndAnchor(_event);
+    // if (!(_event.target instanceof HTMLButtonElement))
+    //   return;
 
     let command: string | null = (<HTMLButtonElement>_event.target).textContent;
     let formdata: FormData = new FormData(document.forms[0]);
@@ -82,31 +82,31 @@ console.log(database);
   }
 
   // for convenience, clear or randomly fill the fields of the document-fieldset when clicking on the anchors
-  function hndAnchor(_event: Event): void {
-    let command: string | null = (<HTMLElement>_event.target).textContent;
-    let fields: string[] = ["color", "radius", "shape"];
-    console.log(command);
-    switch (command) {
-      case "Clear":
-        fields.forEach((_color) => (<HTMLInputElement>document.querySelector(`[color=${_color}]`)).value = "");
-        break;
-      case "Fill":
-        fields.forEach((_color) => {
-          let element: HTMLInputElement = (<HTMLInputElement>document.querySelector(`[color=${_color}]`));
-          switch (_color) {
-            case "color":
-              element.value = Math.random() < 0.5 ? "green" : "red";
-              break;
-            case "radius":
-              element.value = "10";
-              break;
-            case "shape":
-              element.value = Math.random() < 0.5 ? "rect" : "kreis";
-              break;
+  // function hndAnchor(_event: Event): void {
+  //   let command: string | null = (<HTMLElement>_event.target).textContent;
+  //   let fields: string[] = ["color", "radius", "shape"];
+  //   console.log(command);
+  //   switch (command) {
+  //     case "Clear":
+  //       fields.forEach((_color) => (<HTMLInputElement>document.querySelector(`[color=${_color}]`)).value = "");
+  //       break;
+  //     case "Fill":
+  //       fields.forEach((_color) => {
+  //         let element: HTMLInputElement = (<HTMLInputElement>document.querySelector(`[color=${_color}]`));
+  //         switch (_color) {
+  //           case "color":
+  //             element.value = Math.random() < 0.5 ? "green" : "red";
+  //             break;
+  //           case "radius":
+  //             element.value = "10";
+  //             break;
+  //           case "shape":
+  //             element.value = Math.random() < 0.5 ? "rect" : "kreis";
+  //             break;
            
-          }
-        });
-        break;
-    }
-  }
+  //         }
+  //       });
+  //       break;
+  //   }
+  // }
 }
